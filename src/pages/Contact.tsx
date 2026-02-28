@@ -27,7 +27,7 @@ const handleContact = async (e: React.FormEvent) => {
   e.preventDefault();
 
   try {
-    const res = await fetch("http://localhost:5000/send-inquiry", {
+    const res = await fetch("/api/send-inquiry", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const handleQuote = async (e: React.FormEvent) => {
   e.preventDefault();
 
   try {
-    const res = await fetch("http://localhost:5000/request-quote", {
+    const res = await fetch("/api/request-quote", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
