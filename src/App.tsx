@@ -21,6 +21,7 @@ import Services from "@/pages/Services";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/NotFound";
 import logo from "@/assets/logo.jpeg";
+//import ChatBot from "@/components/ChatBot";
 
 const queryClient = new QueryClient();
 
@@ -90,7 +91,7 @@ const App = () => (
 
         <Footer />
         <BackToTop />
-
+        {/* <ChatBot />    */}
         {/* WhatsApp Floating Button */}
         <a
           href="https://wa.me/919830427374?text=Hello%20I%20am%20interested%20in%20your%20packaging%20products"

@@ -23,7 +23,7 @@ const whyChoose = [
 ];
 
 const testimonials = [
-  { name: "Mehul Vora", text: "Consistent quality, competitive pricing, and reliable delivery. Vraj Packaging has become a trusted partner for our bulk packaging needs.", rating: 4.5 },
+  { name: "Rishab Shah", text: "Consistent quality, competitive pricing, and reliable delivery. Vraj Packaging has become a trusted partner for our bulk packaging needs.", rating: 4.5 },
   { name: "Rajesh Mehta", text: "We have been sourcing BOPP packing tape from Vraj Packaging and are very satisfied with the quality and consistency. The adhesive strength, finish, and durability are excellent, and deliveries are always on time. Pricing is also competitive compared to the market. Overall, a reliable supplier.", rating: 4.5 },
   { name: "Priya Sharma", text: "Vraj Packaging has consistently delivered high-quality carton sealing tapes and stretch films that meet our bulk requirements without compromising on performance.", rating: 4 },
 ];
