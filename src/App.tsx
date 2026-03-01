@@ -2,8 +2,10 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { MessageCircle } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -18,8 +20,59 @@ import Portfolio from "@/pages/Portfolio";
 import Services from "@/pages/Services";
 import Contact from "@/pages/Contact";
 import NotFound from "@/pages/NotFound";
+import logo from "@/assets/logo.jpeg";
 
 const queryClient = new QueryClient();
+
+/* 🔥 Loader Component */
+const PageLoader = () => (
+  <motion.div
+    className="fixed inset-0 bg-black flex flex-col items-center justify-center z-[99999]"
+    initial={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.5 }}
+  >
+    {/* Logo */}
+    <img
+    src={logo}
+      alt="Vraj Packaging"
+      className="w-44 mb-6 animate-pulse"
+    />
+
+    {/* Spinner */}
+    <div className="w-12 h-12 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
+  </motion.div>
+);
+
+/* 🔥 Routes Wrapper with Loader */
+const AnimatedRoutes = () => {
+  const location = useLocation();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => setLoading(false), 700);
+    return () => clearTimeout(timer);
+  }, [location]);
+
+  return (
+    <>
+      <AnimatePresence>
+        {loading && <PageLoader />}
+      </AnimatePresence>
+
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
+};
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -32,20 +85,10 @@ const App = () => (
         <Navbar />
 
         <main className="min-h-[100vh]">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AnimatedRoutes />
         </main>
 
         <Footer />
-
-        {/* Scroll Up Button */}
         <BackToTop />
 
         {/* WhatsApp Floating Button */}
@@ -57,7 +100,6 @@ const App = () => (
         >
           <MessageCircle size={24} />
         </a>
-
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

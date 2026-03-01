@@ -1,6 +1,8 @@
 import { useScrollAnimation, useCounter } from "@/hooks/useScrollAnimation";
 import { Target, Eye, Compass, Shield, Award, Lightbulb, Leaf, Heart, User, Building2, Globe, TrendingUp, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion"; // ✅ ADDED
+
 
 const coreValues = [
   { icon: Shield, title: "Quality Consistency", desc: "Multi-stage quality inspection on every batch — ensuring zero-defect delivery across all orders." },
@@ -40,7 +42,13 @@ const About = () => {
   }, []);
 
   return (
-    <div className="pt-[72px]">
+        <motion.div
+      className="pt-[72px]"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.4 }}
+    >
       {/* Page Header — animated with floating shapes */}
       <section className="bg-accent py-20 md:py-28 relative overflow-hidden">
         {/* Floating decorative shapes */}
@@ -225,7 +233,7 @@ const About = () => {
           </div>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 };
 

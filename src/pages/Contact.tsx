@@ -152,8 +152,12 @@ const handleQuote = async (e: React.FormEvent) => {
             <h2 className="text-2xl font-bold text-foreground mb-6">Contact Information</h2>
             <div className="space-y-6">
               {[
-                { icon: MapPin, title: "Office Address", value: "Shivam Industrial Estate, Chhatral, Gujarat, India", href: undefined },
-                { icon: Phone, title: "Phone", value: "+91 9830427374", href: "tel:+919830427374" },
+                { 
+                  icon: MapPin, 
+                  title: "Office Address", 
+                  value: "Block No. 250, Shade No. 30, Shivam Estate, Chhatral GIDC, Chhatral, Gandhinagar, Gujarat - 382729", 
+                  href: "https://www.google.com/maps/search/?api=1&query=Shivam+Industrial+Estate+Chhatral+Gujarat+India"
+                },                { icon: Phone, title: "Phone", value: "+91 9830427374", href: "tel:+919830427374" },
                 { icon: Mail, title: "Email", value: "vrajpack01@gmail.com", href: "mailto:vrajpack01@gmail.com" },
                 { icon: Clock, title: "Business Hours", value: "Mon – Sat: 9:00 AM – 7:00 PM", href: undefined },
               ].map((item) => (

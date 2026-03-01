@@ -80,10 +80,17 @@ const Footer = () => (
         <div>
           <h4 className="text-white font-bold text-sm uppercase tracking-wider mb-5">Contact Info</h4>
           <div className="space-y-4">
-            <div className="flex items-start gap-3">
-              <MapPin size={16} className="text-primary mt-0.5 shrink-0" />
-              <p className="text-sm text-accent-foreground/50">Shivam Industrial Estate, Chhatral, Gujarat, India</p>
+          <div className="flex items-start gap-3">
+            <MapPin size={16} className="text-primary mt-1 shrink-0" />
+            
+            <div className="text-sm text-accent-foreground/50 leading-relaxed">
+              <p>Block No. 250, Shade No. 30</p>
+              <p>Shivam Estate</p>
+              <p>Chhatral GIDC</p>
+              <p>Chhatral, Gandhinagar</p>
+              <p>Gujarat - 382729</p>
             </div>
+          </div>
             <div className="flex items-start gap-3">
               <Phone size={16} className="text-primary mt-0.5 shrink-0" />
               <a href="tel:+919830427374" className="text-sm text-accent-foreground/50 hover:text-primary transition-colors">+91 9830427374</a>
