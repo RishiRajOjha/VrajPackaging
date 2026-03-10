@@ -14,10 +14,10 @@ const Footer = () => (
           <img src={logo} alt="VRAJ Packaging" className="w-10 h-10 rounded-lg object-cover" />
           <div className="flex flex-col leading-none">
             <span className="text-primary font-bold text-lg tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Vraj
+              VRAJ
             </span>
             <span className="text-accent-foreground/60 text-[9px] tracking-[0.2em] uppercase font-medium">
-              Packaging
+              PACKAGING
             </span>
           </div>
           </div>
